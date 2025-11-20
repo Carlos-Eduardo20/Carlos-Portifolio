@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Portfólio Hacker</title>
+    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <canvas id="matrixBackground"></canvas>
+    <button id="openThemeBtn" class="theme-button">Themes</button>
+    <button id="backBtn" class="back-button" aria-label="Voltar"></button>
+
+    <div class="page-wrapper">
+        <h1 class="page-title">CONTATO</h1>
+        <div class="project-block">
+            <p class="block-title">
+                Aqui estão minhas principais formas de contato. Fique à vontade para me enviar uma mensagem, conectar no LinkedIn ou explorar meus projetos no GitHub.
+            </p>
+            <br>
+            <ul class="contact-list">
+                <li class="contact-item">
+                    <img class="contact-logo" src="../assets/img/icon-gmail.png" alt="Gmail">
+                    <span class="contact-label">E-mail</span>
+                    <a class="contact-link" href="mailto:carloedus776@gmail.com">carloedus776@gmail.com</a>
+                    <button class="copy-btn" data-copy="carloedus776@gmail.com"><img src="../assets/img/button-copy.png" alt="Copiar" class="copy-icon"> Copiar</button>
+                </li>
+                <li class="contact-item">
+                    <img class="contact-logo" src="../assets/img/linkedin-icon.png" alt="LinkedIn">
+                    <span class="contact-label">LinkedIn</span>
+                    <a class="contact-link" href="https://www.linkedin.com/in/carlos-eduardo-redes" target="_blank" rel="noopener">linkedin.com/in/carlos-eduardo-redes</a>
+                    <button class="copy-btn" data-copy="https://www.linkedin.com/in/carlos-eduardo-redes"><img src="../assets/img/button-copy.png" alt="Copiar" class="copy-icon"> Copiar</button>
+                </li>
+                <li class="contact-item">
+                    <img class="contact-logo" src="../assets/img/github-icon.png" alt="GitHub">
+                    <span class="contact-label">GitHub</span>
+                    <a class="contact-link" href="https://github.com/Carlos-Eduardo20" target="_blank" rel="noopener">github.com/Carlos-Eduardo20</a>
+                    <button class="copy-btn" data-copy="https://github.com/Carlos-Eduardo20"><img src="../assets/img/button-copy.png" alt="Copiar" class="copy-icon"> Copiar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="themeModal" class="theme-modal hidden">
+        <div class="theme-window">
+            <h2>SELECIONE UM TEMA</h2>
+            <div class="theme-options">
+                <div class="theme-card" data-theme="hacker"><div class="preview hacker"></div><span>Hacker Green</span></div>
+                <div class="theme-card" data-theme="purple"><div class="preview purple"></div><span>Cyber Purple</span></div>
+                <div class="theme-card" data-theme="light"><div class="preview light"></div><span>Light Clean</span></div>
+                <div class="theme-card" data-theme="dark"><div class="preview dark"></div><span>Dark Professional</span></div>
+            </div>
+            <button id="closeThemeModal" class="close-btn">Fechar</button>
+        </div>
+    </div>
+
+    <script src="../assets/JS/main.js"></script>
+</body>
+</html>

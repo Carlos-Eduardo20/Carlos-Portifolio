@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Portfólio Hacker</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+
+<body>
+    <canvas id="matrixBackground"></canvas>
+    <button id="openThemeBtn" class="theme-button">Themes</button>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="page-wrapper">
+
+        <!-- TÍTULO -->
+        <button id="backBtn" class="back-button" aria-label="Voltar"></button>
+        <h1 class="page-title">MEUS PROJETOS</h1>
+
+        <!-- BLOCO 1 -->
+        <div class="project-block">
+            <h2 class="block-title">Portfólio Hacker Interativo</h2>
+            <p class="block-text"><strong>Objetivo:</strong> Documentar minha evolução na área de TI enquanto estudo redes, infraestrutura e segurança.</p>
+            <p class="block-text"><strong>Tecnologias:</strong> HTML, CSS, JavaScript, efeitos CRT/Glitch/Typing, temas, páginas separadas, terminal interativo e ícone personalizado.</p>
+            <p class="block-text"><strong>Recursos do Projeto:</strong><br>
+                • Terminal funcional com comandos reais<br>
+                • Animações hacker (glitch, CRT, typing)<br>
+                • Interface temática completa<br>
+                • Navegação por páginas organizadas<br>
+                • Design inspirado em segurança e infraestrutura
+            </p>
+            <p class="block-text"><strong>Aprendizado:</strong> Organização de pastas, estruturação de páginas e lógica de interação ao longo do processo.</p>
+        </div>
+
+        <!-- BLOCO 2 -->
+        <div class="project-block">
+            <h2 class="block-title">Mini Laboratório de Rede no EVE-NG</h2>
+            <div class="block-content">
+                <p class="block-text">
+                    Criei um ambiente de rede virtual no EVE-NG integrando Windows Server,
+                    Debian, Access Point, um cliente Windows e um smartphone conectado via Wi-Fi. Estruturei uma topologia pequena, porém funcional, para testar comunicação entre diferentes sistemas.
+                </p>
+                <h3 class="block-title">Tecnologias utilizadas:</h3>
+                <ul class="block-list">
+                    <li>EVE-NG</li>
+                    <li>Windows Server</li>
+                    <li>Debian</li>
+                    <li>Access Point + Rede Wireless</li>
+                    <li>Testes de conectividade entre cliente/servidor</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BLOCO 3 -->
+        <div class="project-block">
+            <h2 class="block-title">Programas em C</h2>
+            <p class="block-text">
+                Conjunto de exercícios e programas desenvolvidos em linguagem C,
+                focados em estruturas de dados, lógica de programação e entendimento
+                de como a memória funciona por trás do código. São pequenos projetos que
+                demonstram minha evolução no raciocínio computacional.
+
+                <h3>Conteúdos trabalhados:</h3>
+                <ul class="proj-list">
+                    <li>Listas encadeadas</li>
+                    <li>Pilhas e Filas</li>
+                    <li>Ponteiros e alocação de memória</li>
+                    <li>Estruturas (struct)</li>
+                    <li>Manipulação de strings</li>
+                    <li>Funções e modularização</li>
+                </ul>
+                <br>
+                <h3>Resultados e Aprendizados:</h3>
+                    <p class="proj-desc">
+                        Esses programas fortaleceram minha base no pensamento lógico, na
+                        identificação de padrões e no entendimento interno do funcionamento de
+                        algoritmos. Mesmo não sendo minha área principal, estudar C me ajuda a
+                        pensar como a máquina realmente funciona, o que é essencial para quem
+                        trabalha com redes e cibersegurança.
+                    </p>
+            </p>
+        </div>
+    </div>
+
+<div id="themeModal" class="theme-modal hidden">
+    <div class="theme-window">
+        <h2>SELECIONE UM TEMA</h2>
+        <div class="theme-options">
+            <div class="theme-card" data-theme="hacker"><div class="preview hacker"></div><span>Hacker Green</span></div>
+            <div class="theme-card" data-theme="purple"><div class="preview purple"></div><span>Cyber Purple</span></div>
+            <div class="theme-card" data-theme="light"><div class="preview light"></div><span>Light Clean</span></div>
+            <div class="theme-card" data-theme="dark"><div class="preview dark"></div><span>Dark Professional</span></div>
+        </div>
+        <button id="closeThemeModal" class="close-btn">Fechar</button>
+    </div>
+</div>
+
+<script src="../assets/JS/main.js"></script>
+</body>
+</html>
