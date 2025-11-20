@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos — Portfólio Hacker</title>
+    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <canvas id="matrixBackground"></canvas>
+    <button id="openThemeBtn" class="theme-button">Themes</button>
+
+    <div class="terminal">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">terminal-carlos:~/portfolio</span>
+        </div>
+
+        <div class="terminal-body">
+            <div id="terminal-output"></div>
+            <div id="command-line">
+                <span id="prefix">carlos@portfolio:~$</span>
+                <input id="commandInput" type="text" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="side-menu">
+            <button class="side-btn" data-section="sobre">> SOBRE MIM</button>
+            <button class="side-btn" data-section="projetos">> PROJETOS</button>
+            <button class="side-btn" data-section="contato">> CONTATO</button>
+            <button class="side-btn" data-section="resumo">> RESUMO</button>
+        </div>
+    </div>
+
+    <audio id="typeSound" src="assets/sounds/type.mp3" preload="auto"></audio>
+    <audio id="soundEnter" src="assets/sounds/enter.mp3"></audio>
+    <audio id="soundError" src="assets/sounds/error.mp3"></audio>
+
+    <div id="themeModal" class="theme-modal hidden">
+    <div class="theme-window">
+        <h2>SELECIONE UM TEMA</h2>
+
+        <div class="theme-options">
+
+            <div class="theme-card" data-theme="hacker">
+                <div class="preview hacker"></div>
+                <span>Hacker Green</span>
+            </div>
+
+            <div class="theme-card" data-theme="purple">
+                <div class="preview purple"></div>
+                <span>Cyber Purple</span>
+            </div>
+
+            <div class="theme-card" data-theme="light">
+                <div class="preview light"></div>
+                <span>Light Clean</span>
+            </div>
+
+            <div class="theme-card" data-theme="dark">
+                <div class="preview dark"></div>
+                <span>Dark Professional</span>
+            </div>
+
+        </div>
+
+        <button id="closeThemeModal" class="close-btn">Fechar</button>
+    </div>
+</div>
+
+<script src="../assets/JS/main.js"></script>
+</body>
+</html>
