@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo - Portfólio Hacker</title>
+    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <canvas id="matrixBackground"></canvas>
+    <button id="openThemeBtn" class="theme-button">Themes</button>
+    <button id="backBtn" class="back-button" aria-label="Voltar"></button>
+
+    <div class="page-wrapper">
+        <h1 class="page-title">RESUMO</h1>
+        <div class="project-block">
+            <h2 class="block-title">Resumo Profissional</h2>
+            <p class="block-text">
+                Sou um estudante dedicado de Tecnologia da Informação, construindo uma base sólida em redes, sistemas e fundamentos de cibersegurança. Tenho uma abordagem disciplinada para aprender, buscando sempre entender o funcionamento real das tecnologias e como conectá-las de forma prática. Evoluo um pouco mais a cada projeto, seja configurando serviços, montando topologias ou explorando ferramentas de segurança. Estou em constante desenvolvimento e aberto a oportunidades que me permitam crescer, aplicar meus conhecimentos e contribuir para soluções técnicas de verdade.
+            </p>
+        </div>
+    </div>
+
+    <div id="themeModal" class="theme-modal hidden">
+        <div class="theme-window">
+            <h2>SELECIONE UM TEMA</h2>
+            <div class="theme-options">
+                <div class="theme-card" data-theme="hacker"><div class="preview hacker"></div><span>Hacker Green</span></div>
+                <div class="theme-card" data-theme="purple"><div class="preview purple"></div><span>Cyber Purple</span></div>
+                <div class="theme-card" data-theme="light"><div class="preview light"></div><span>Light Clean</span></div>
+                <div class="theme-card" data-theme="dark"><div class="preview dark"></div><span>Dark Professional</span></div>
+            </div>
+            <button id="closeThemeModal" class="close-btn">Fechar</button>
+        </div>
+    </div>
+
+    <script src="../assets/JS/main.js"></script>
+</body>
+</html>

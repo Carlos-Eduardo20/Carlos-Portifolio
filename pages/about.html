@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - Portfólio Hacker</title>
+    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <canvas id="matrixBackground"></canvas>
+    <button id="openThemeBtn" class="theme-button">Themes</button>
+    <button id="backBtn" class="back-button" aria-label="Voltar"></button>
+
+    <div class="page-wrapper">
+        <h1 class="page-title">SOBRE MIM</h1>
+        <div class="project-block">
+            <img src="../assets/img/profile.jpg" alt="Foto de Carlos Eduardo" class="block-image">
+            <h2 class="block-title">Carlos Eduardo</h2>
+            <p class="block-text">
+                Sempre gostei de entender como as coisas funcionam por dentro. Foi isso que me levou para a área de tecnologia e, mais recentemente, despertou meu interesse por Segurança da Informação e Programação.
+                Hoje tenho uma base sólida em redes e infraestrutura concluí o CCNA 1 e 2 pela Cisco e também estudei Segurança da Informação e Banco de Dados. Gosto da parte prática: configurar dispositivos, e resolver problemas que aparecem no caminho.
+                Ao mesmo tempo, estou direcionando meus estudos para programação, principalmente na parte lógica e também em cibersegurança na parte e na análise de tráfego. Quero trabalhar protegendo sistemas e aprendendo cada vez mais sobre como tornar um ambiente seguro.
+                Sou uma pessoa disciplinada, paciente e que não desiste fácil. Se eu não sei algo, corro atrás até aprender. Também tenho facilidade para analisar problemas, pensar com calma e encontrar soluções criativas.
+                Meu objetivo é entrar na área de Segurança da Informação e crescer dentro dela, unindo tudo que já aprendi sobre redes com o que estou construindo agora em segurança.
+            </p>
+        </div>
+    </div>
+
+    <div id="themeModal" class="theme-modal hidden">
+        <div class="theme-window">
+            <h2>SELECIONE UM TEMA</h2>
+            <div class="theme-options">
+                <div class="theme-card" data-theme="hacker"><div class="preview hacker"></div><span>Hacker Green</span></div>
+                <div class="theme-card" data-theme="purple"><div class="preview purple"></div><span>Cyber Purple</span></div>
+                <div class="theme-card" data-theme="light"><div class="preview light"></div><span>Light Clean</span></div>
+                <div class="theme-card" data-theme="dark"><div class="preview dark"></div><span>Dark Professional</span></div>
+            </div>
+            <button id="closeThemeModal" class="close-btn">Fechar</button>
+        </div>
+    </div>
+
+    <script src="../assets/JS/main.js"></script>
+</body>
+</html>

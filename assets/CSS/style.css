@@ -1,0 +1,885 @@
+/* === FONTE TERMINAL (GOOGLE FONTS) === */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+
+/* === CONFIGURAÇÃO GLOBAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: var(--text);
+    font-family: "Fira Code", monospace;
+    min-height: 100vh;
+}
+
+body:has(.terminal) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === TERMINAL PRINCIPAL === */
+.terminal {
+    width: clamp(280px, 85vw, 900px);
+    min-width: 280px;
+    background-color: var(--terminal-bg);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* === CABEÇALHO DO TERMINAL === */
+.terminal-header {
+    background-color: #111;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-title {
+    margin-left: 10px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* === ÁREA DE TEXTO === */
+.terminal-body {
+    padding: 20px;
+    font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+    display: flex;
+    flex-direction: column;
+    max-height: 62vh;
+}
+
+.prompt {
+    color: #00ff9d;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* === BOTÕES NEON === */
+.menu {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background: transparent;
+    border: 2px solid #00ff9d;
+    color: #00ff9d;
+    padding: 10px 20px;
+    font-family: "Fira Code", monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00ff9d;
+}
+
+.btn:hover {
+    background-color: #00ff9d;
+    color: #000;
+    box-shadow: 0 0 20px #00ff9d;
+}
+
+/*  MENU LATERAL HACKER  */
+.side-menu {
+    position: fixed;
+    left: clamp(8px, 2vw, 20px);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vh, 20px);
+    z-index: 9998;
+}
+
+.side-btn {
+    background: var(--terminal-bg);
+    backdrop-filter: blur(1.5px);
+    border: 2px solid var(--accent);
+    color: var(--text);
+    padding: 12px 18px;
+    font-family: "Fira Code", monospace;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    cursor: pointer;
+    text-align: left;
+    width: clamp(120px, 18vw, 170px);
+    border-radius: 8px;
+    box-shadow: 0 0 12px var(--accent);
+    transition: 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.side-btn:hover {
+    background-color: var(--accent);
+    color: var(--btn-hover-text);
+    box-shadow: 0 0 20px var(--accent);
+    transform: translateX(8px);
+}
+
+#typing {
+    white-space: pre-line;
+}
+
+/* === CURSOR PISCANTE === */
+#cursor {
+    color: #00ff9d;
+    font-weight: bold;
+    margin-left: 5px;
+    animation: blink 0.8s infinite;
+}
+
+@media (max-width: 768px) {
+    .page-wrapper {
+        width: min(94vw, 960px);
+        padding: 0 14px;
+        margin: calc(env(safe-area-inset-top, 0px) + 80px) auto;
+    }
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* === EFEITO SCANLINES === */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--accent-scanline) 0px,
+        var(--accent-scanline) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    z-index: 999;
+}
+
+/* === EFEITO CRT === */
+.terminal {
+    position: relative;
+    overflow: hidden;
+}
+
+.terminal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    mix-blend-mode: screen;
+}
+
+/* === FLICKER SUAVE DO MONITOR === */
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.97; }
+    100% { opacity: 1; }
+}
+
+body {
+    animation: flicker 0.12s infinite;
+}
+
+/* === EFEITO GLITCH NO TEXTO === */
+.glitch {
+    animation: glitch 0.2s linear;
+}
+
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+    20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+    40% { text-shadow: 2px 0 red, -2px 0 cyan; }
+    60% { text-shadow: -2px 0 red, 2px 0 cyan; }
+    80% { text-shadow: 2px 0 red, -2px 0 cyan; }
+    100% { text-shadow: none; }
+}
+
+/* === POPUP HACKER === */
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    background: #0d0d0d;
+    border: 2px solid #00ff9d;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #00ff9d;
+    z-index: 2000;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup-header {
+    background: #111;
+    padding: 8px 12px;
+    border-bottom: 2px solid #00ff9d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-title {
+    color: #00ff9d;
+    font-family: "Fira Code", monospace;
+    font-size: 1rem;
+}
+
+.popup-close {
+    background: transparent;
+    border: 2px solid #00ff9d;
+    color: #00ff9d;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Fira Code", monospace;
+}
+.popup-close:hover {
+    background: #00ff9d;
+    color: #000;
+}
+
+.popup-body {
+    padding: 15px;
+    color: #00ff9d;
+    font-family: "Fira Code", monospace;
+    white-space: pre-line;
+}
+
+/* === TERMINAL LINUX COMMAND LINE === */
+#command-line {
+    margin-top: 10px;
+    display: block; /* será ativado depois */
+}
+
+#prefix {
+    color: var(--text);
+    font-family: "Fira Code", monospace;
+}
+
+#commandInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff9d;
+    font-family: "Fira Code", monospace;
+    font-size: clamp(15px, 4vw, 18px);
+    width: 70%;
+}
+#terminal-output {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-right: 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    color: var(--text);
+}
+#terminal-output::-webkit-scrollbar {
+    display: none;
+}
+
+#matrixBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* fica atrás de tudo */
+    background: black;
+}
+
+button, .copy-btn {
+    touch-action: manipulation;
+}
+
+.terminal {
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: neonPulse 1.6s infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+    }
+    to {
+        box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent);
+    }
+}
+
+/* ==========================
+   EFEITO CRT - TERMINAL HACKER
+   ========================== */
+
+.terminal {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linhas horizontais (scanlines) */
+.terminal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--accent-scanline) 0px,
+        var(--accent-scanline) 1px,
+        transparent 2px,
+        transparent 3px
+    );
+    z-index: 10;
+}
+
+/* Tremida leve */
+.terminal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 11;
+    animation: crtShake 0.25s infinite;
+    background: transparent;
+}
+
+@keyframes crtShake {
+    0%   { transform: translate(0px, 0px); opacity: 0.9; }
+    20%  { transform: translate(0.5px, -0.5px); opacity: 1; }
+    40%  { transform: translate(-0.5px, 0.5px); opacity: 0.85; }
+    60%  { transform: translate(0.3px, -0.3px); opacity: 1; }
+    80%  { transform: translate(-0.3px, 0.2px); opacity: 0.9; }
+    100% { transform: translate(0px, 0px); opacity: 1; }
+}
+
+/* ===== MODAL DE TEMAS ===== */
+
+.theme-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.theme-modal.hidden {
+    display: none;
+}
+
+.theme-window {
+    background: var(--terminal-bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    padding: 20px;
+    width: clamp(300px, 92vw, 450px);
+    border-radius: 8px;
+    animation: modalPop 0.3s ease-out;
+    text-align: center;
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.theme-window h2 {
+    color: var(--text);
+    font-family: monospace;
+    margin-bottom: 20px;
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 420px) {
+    .theme-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+.theme-card {
+    background: var(--terminal-bg);
+    border: 2px solid var(--accent);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.theme-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.theme-card span {
+    color: var(--text);
+    margin-top: 8px;
+    display: block;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.preview {
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    border: 1px solid var(--accent);
+}
+
+.preview.hacker {
+    background: #001900;
+}
+
+.preview.purple {
+    background: linear-gradient(135deg, #6a00ff, #00ccff);
+}
+
+.preview.light {
+    background: #ffffff;
+}
+
+.preview.dark {
+    background: #0d0d0d;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 8px 15px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    color: var(--text);
+    font-family: monospace;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: var(--accent);
+    color: var(--btn-hover-text);
+}
+
+.theme-button {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 15px);
+    right: calc(env(safe-area-inset-right, 0px) + 15px);
+    background: var(--bg);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    padding: 6px 12px;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 5px;
+    transition: 0.2s;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.theme-button:hover {
+    background: var(--accent);
+    color: var(--btn-hover-text);
+}
+
+.back-button {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 15px);
+    left: calc(env(safe-area-inset-left, 0px) + 15px);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--accent);
+    cursor: pointer;
+    z-index: 9999;
+    transition: 0.2s;
+}
+
+/* Menu hambúrguer (Android) */
+.hamburger-btn {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 15px);
+    left: calc(env(safe-area-inset-left, 0px) + 15px);
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+    color: var(--text);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--accent);
+    cursor: pointer;
+    z-index: 9999;
+}
+.hamburger-btn::before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 12px;
+    box-shadow: 0 -6px 0 0 var(--accent), 0 0 0 0 var(--accent), 0 6px 0 0 var(--accent);
+}
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(80vw, 320px);
+    height: 100vh;
+    background: var(--terminal-bg);
+    border-right: 2px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    padding: 14px;
+    z-index: 9998;
+}
+.mobile-drawer .drawer-header {
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.mobile-drawer .drawer-link {
+    width: 100%;
+    text-align: left;
+    margin: 6px 0;
+    padding: 10px 12px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text);
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--accent);
+}
+.mobile-drawer .drawer-link:hover {
+    background: var(--accent);
+    color: var(--btn-hover-text);
+}
+.android .hamburger-btn { display: flex; }
+.android .side-menu { display: none; }
+.back-button::before {
+    content: "\2190";
+    font-size: 20px;
+    line-height: 1;
+}
+.back-button:hover {
+    background: var(--accent);
+    color: var(--btn-hover-text);
+}
+
+:root {
+    --bg: #000;
+    --text: #00ff41;
+    --accent: #00ff41;
+    --accent-scanline: rgba(0,255,65,0.12);
+    --accent-glow: rgba(0,255,65,0.15);
+    --terminal-bg: #0d0d0d;
+    --btn-hover-text: #000000;
+    --modal-overlay: rgba(0,0,0,0.7);
+}
+
+/* ==========================
+   TEMAS DO SITE
+========================== */
+
+/* Tema Hacker Green (padrão) */
+body[data-theme="hacker"] {
+    --bg: #000;
+    --text: #00ff41;
+    --accent: #00ff41;
+    --accent-scanline: rgba(0,255,65,0.12);
+    --accent-glow: rgba(0,255,65,0.15);
+    --terminal-bg: #0d0d0d;
+    --btn-hover-text: #000000;
+    --modal-overlay: rgba(0,0,0,0.7);
+}
+
+/* Tema Cyber Purple */
+body[data-theme="purple"] {
+    --bg: #0a0014;
+    --text: #b966ff;
+    --accent: #b966ff;
+    --accent-scanline: rgba(185,102,255,0.12);
+    --accent-glow: rgba(185,102,255,0.15);
+    --terminal-bg: #120018;
+    --btn-hover-text: #0a0014;
+    --modal-overlay: rgba(10,0,20,0.75);
+}
+
+/* Tema Light Clean */
+body[data-theme="light"] {
+    --bg: #ffffff;
+    --text: #000000;
+    --accent: #007acc;
+    --accent-scanline: rgba(0,122,204,0.12);
+    --accent-glow: rgba(0,122,204,0.15);
+    --terminal-bg: #f5f7fa;
+    --btn-hover-text: #ffffff;
+    --modal-overlay: rgba(255,255,255,0.6);
+}
+
+/* Tema Dark Professional */
+body[data-theme="dark"] {
+    --bg: #111;
+    --text: #e6e6e6;
+    --accent: #00d0ff;
+    --accent-scanline: rgba(0,208,255,0.12);
+    --accent-glow: rgba(0,208,255,0.15);
+    --terminal-bg: #0d0d0d;
+    --btn-hover-text: #0d0d0d;
+    --modal-overlay: rgba(0,0,0,0.75);
+}
+
+/* Aplicação global */
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Fundo hacker igual ao index */
+.hacker-bg {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Fira Code", monospace;
+}
+
+/* Wrapper centralizado */
+.page-wrapper {
+    width: clamp(300px, 92vw, 960px);
+    padding-inline: clamp(12px, 3vw, 24px);
+    margin: clamp(28px, 6vh, 60px) auto;
+}
+
+/* Título principal */
+.page-title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: var(--text);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+/* Caixa dos projetos */
+.project-block {
+    border: 1px solid var(--accent);
+    padding: 26px;
+    margin: 25px 0;
+    border-radius: 6px;
+    box-shadow: 0 0 12px var(--accent);
+    background: var(--terminal-bg);
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+}
+
+/* Título da caixa */
+.block-title {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+/* Texto da caixa */
+.block-text {
+    margin-bottom: 15px;
+    line-height: 1.5rem;
+}
+
+/* Contatos com botão de copiar */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+.contact-item {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--accent);
+    background: var(--terminal-bg);
+    padding: 10px 12px;
+    border-radius: 6px;
+}
+.contact-label {
+    min-width: 80px;
+    color: var(--accent);
+    font-weight: 700;
+}
+.contact-link {
+    color: var(--accent);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+    justify-self: start;
+}
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent);
+    transition: 0.2s;
+    justify-self: end;
+}
+.copy-btn::before { content: none; }
+.copy-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+    border: none;
+    box-shadow: none;
+}
+.contact-logo {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+}
+.copy-btn:hover {
+    background: var(--accent);
+    color: var(--btn-hover-text);
+}
+
+@media (max-width: 420px) {
+    .copy-label { display: none; }
+    .copy-btn { padding: 6px 8px; }
+    .contact-item { gap: 8px; }
+}
+
+/* Listas dentro dos blocos */
+.project-block ul {
+    list-style: disc outside;
+    padding-left: 32px;
+    margin-left: 0;
+}
+.project-block li {
+    margin: 4px 0;
+}
+
+/* Imagens dos projetos */
+.project-img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    margin: 8px auto;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.project-block img:not(.contact-logo):not(.copy-icon) {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    object-fit: contain;
+    margin: 6px auto;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 0 8px var(--accent);
+}
+@media (max-width: 480px) {
+    .contact-item {
+        grid-template-columns: auto 1fr auto;
+    }
+}
+.android .hamburger-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+}
+.android .mobile-drawer {
+    width: min(86vw, 360px);
+    padding: 16px;
+}
+.android .mobile-drawer .drawer-link {
+    margin: 8px 0;
+    padding: 12px 14px;
+    font-size: clamp(0.95rem, 4.2vw, 1.05rem);
+}
+.android .drawer-header {
+    font-size: clamp(1rem, 4.6vw, 1.2rem);
+}
+.android .copy-btn {
+    padding: 8px 12px;
+}
+.android .copy-icon {
+    width: 16px;
+    height: 16px;
+}
+.android .contact-item {
+    gap: 12px;
+    padding: 12px;
+    grid-template-columns: auto 1fr auto;
+}
+.android .contact-label {
+    min-width: 92px;
+    font-size: clamp(0.85rem, 3.6vw, 1rem);
+}
+.android .contact-link {
+    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+}
