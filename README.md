@@ -36,5 +36,4 @@ Um portfólio interativo que reúne:
 
 ---
 
-## Estrutura do projeto
 
