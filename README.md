@@ -18,13 +18,6 @@ Um portfólio interativo que reúne:
 
 ---
 
-## Demo / Screenshots
-> Visual (adicione prints em `assets/img/` e substitua os caminhos abaixo)
-![Home preview](assets/img/preview-home.png)  
-![Terminal preview](assets/img/preview-terminal.png)
-
----
-
 ## Funcionalidades
 - Interface responsiva com identidade hacker
 - Terminal com autocomplete (TAB) e histórico (↑/↓)
@@ -44,3 +37,4 @@ Um portfólio interativo que reúne:
 ---
 
 ## Estrutura do projeto
+
